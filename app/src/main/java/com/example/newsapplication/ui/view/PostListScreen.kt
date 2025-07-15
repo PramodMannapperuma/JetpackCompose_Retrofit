@@ -19,16 +19,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.newsapplication.data.models.Post
+import com.example.newsapplication.data.models.Product
 import com.example.newsapplication.ui.theme.PurpleGrey40
 import com.example.newsapplication.viewModel.PostViewModel
 
 @Composable
 fun PostListScreen(viewModel: PostViewModel = PostViewModel(), paddingValues: PaddingValues) {
 
-    val posts by viewModel.posts
+    val productResponse by viewModel.products
 
-    if( posts.isEmpty()) {
+    if( productResponse.products.isEmpty()) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -44,7 +44,7 @@ fun PostListScreen(viewModel: PostViewModel = PostViewModel(), paddingValues: Pa
             verticalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier.padding(paddingValues )
         ) {
-            items(posts){
+            items(productResponse.products){
                 PostCard(it)
             }
         }
@@ -52,15 +52,15 @@ fun PostListScreen(viewModel: PostViewModel = PostViewModel(), paddingValues: Pa
 }
 
 @Composable
-fun PostCard(post: Post) {
+fun PostCard(productResponse: Product) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(PurpleGrey40),
         ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text("Post #${post.id}", style= MaterialTheme.typography.bodyLarge, color= Color.White)
-            Text(post.title, style = MaterialTheme.typography.bodyMedium, color = Color.White)
-            Text(post.body, style = MaterialTheme.typography.bodySmall, color = Color.White)
+            Text("Product #${productResponse.id}", style= MaterialTheme.typography.bodyLarge, color= Color.White)
+            Text(productResponse.title, style = MaterialTheme.typography.bodyMedium, color = Color.White)
+            Text(productResponse.description, style = MaterialTheme.typography.bodySmall, color = Color.White)
         }
     }
 }

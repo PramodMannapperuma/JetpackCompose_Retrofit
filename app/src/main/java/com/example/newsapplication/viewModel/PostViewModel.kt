@@ -5,24 +5,31 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newsapplication.data.api.RetrofitInstance
-import com.example.newsapplication.data.models.Post
+import com.example.newsapplication.data.models.ProductResponse
 import kotlinx.coroutines.launch
 
 class PostViewModel: ViewModel() {
-    private val _posts = mutableStateOf<List<Post>>(emptyList())
-    val posts: State<List<Post>> = _posts
+    private val _products = mutableStateOf(
+        ProductResponse(
+            products = emptyList(),
+            total = 0,
+            skip = 0,
+            limit = 0
+        )
+    )
+    val products: State<ProductResponse> = _products
 
 
     init {
-        fetchPosts()
+        fetchProducts()
     }
 
-    private fun fetchPosts() {
+    private fun fetchProducts() {
         viewModelScope.launch {
             try {
-                _posts.value = RetrofitInstance.api.getPosts()
+                _products.value = RetrofitInstance.api.getProducts()
             } catch (e: Exception){
-                println("Error : ${e.message}")
+                println("Errorr : ${e.message}")
             }
         }
     }
