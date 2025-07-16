@@ -8,7 +8,7 @@ import com.example.newsapplication.data.api.RetrofitInstance
 import com.example.newsapplication.data.models.ProductResponse
 import kotlinx.coroutines.launch
 
-class PostViewModel: ViewModel() {
+class ProductViewModel: ViewModel() {
     private val _products = mutableStateOf(
         ProductResponse(
             products = emptyList(),

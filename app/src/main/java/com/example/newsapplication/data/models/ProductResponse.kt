@@ -1,16 +1,13 @@
 package com.example.newsapplication.data.models
 
 data class ProductResponse(
-    val products: List<Product>,
-    val total: Int,
-    val skip: Int,
-    val limit: Int
+    val products: List<Product>, val total: Int, val skip: Int, val limit: Int
 )
+
 data class Dimensions(
-    val width: Double,
-    val height: Double,
-    val depth: Double
+    val width: Double, val height: Double, val depth: Double
 )
+
 data class Reviews(
     val rating: Int,
     val comment: String,
@@ -18,12 +15,14 @@ data class Reviews(
     val reviewerName: String,
     val reviewerEmail: String,
 )
+
 data class Meta(
     val createdAt: String,
     val updatedAt: String,
     val barcode: String,
     val qrcode: String,
 )
+
 data class Product(
     val id: Int,
     val title: String,
