@@ -1,14 +1,12 @@
 package com.example.newsapplication
 
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.newsapplication.ui.view.LoginScreen
 import com.example.newsapplication.ui.view.home.HomePage
-import com.example.newsapplication.ui.view.home.ProductListScreen
+import com.example.newsapplication.ui.view.productView.ProductDetailScreen
 
 @Composable
 fun RouteNavigation() {
@@ -19,7 +17,11 @@ fun RouteNavigation() {
                 LoginScreen(navController)
             }
             composable(Routes.HomeScreen) {
-                HomePage()
+                HomePage(navController)
+            }
+            composable(Routes.ProductDetailWithArgs) {
+                backStackEntry -> val productId = backStackEntry.arguments?.getString("productId")?.toIntOrNull()
+                ProductDetailScreen(productId)
             }
         })
 }

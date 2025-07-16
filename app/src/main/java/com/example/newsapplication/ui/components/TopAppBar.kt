@@ -13,7 +13,7 @@ fun AppBar(title: String) {
     TopAppBar(
         title = {Text(title)},
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
+//            containerColor = MaterialTheme.colorScheme.primaryContainer,
             titleContentColor = MaterialTheme.colorScheme.primary,
         )
     )

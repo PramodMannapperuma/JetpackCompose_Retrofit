@@ -1,6 +1,5 @@
 package com.example.newsapplication.ui.view
 
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -11,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.newsapplication.Routes
-import com.example.newsapplication.ui.view.home.CustomOutlinedTextField
+import com.example.newsapplication.ui.components.CustomOutlinedTextField
 import com.example.newsapplication.viewModel.LoginViewModel
 
 @Composable

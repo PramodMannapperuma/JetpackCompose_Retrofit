@@ -1,4 +1,4 @@
-package com.example.newsapplication.ui.view.home
+package com.example.newsapplication.ui.components
 
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.OutlinedTextField
