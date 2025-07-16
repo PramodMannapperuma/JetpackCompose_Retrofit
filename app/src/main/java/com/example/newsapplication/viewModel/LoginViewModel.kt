@@ -1,29 +1,26 @@
 package com.example.newsapplication.viewModel
 
 import androidx.compose.runtime.State
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newsapplication.data.api.RetrofitInstance
 import com.example.newsapplication.data.models.LoginRequest
 import com.example.newsapplication.data.models.LoginResponse
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
 
 class LoginViewModel: ViewModel() {
 
     private val _email = mutableStateOf("")
-    var email: State<String> = _email
+    val email: State<String> = _email
     private val _password = mutableStateOf("")
-    var password: State<String> = _password
+    val password: State<String> = _password
 
     private val _errorMessage = mutableStateOf("")
-    var errorMessage: State<String> = _errorMessage
+    val errorMessage: State<String> = _errorMessage
 
     private val _isLoading = mutableStateOf(false)
-    var isLoading: State<Boolean> = _isLoading
+    val isLoading: State<Boolean> = _isLoading
 
     private val _loginResponse = mutableStateOf<LoginResponse?>(null)
     val loginResponse: State<LoginResponse?> = _loginResponse

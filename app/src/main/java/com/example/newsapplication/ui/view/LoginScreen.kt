@@ -8,12 +8,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.*
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import com.example.newsapplication.Routes
 import com.example.newsapplication.viewModel.LoginViewModel
 
 @Composable
 fun LoginScreen(
-    loginViewModel: LoginViewModel = LoginViewModel(),
-    onLoginSuccess: () -> Unit = {} // You can pass navigation logic here
+    navController: NavController,
+    loginViewModel: LoginViewModel = viewModel(),
 ) {
     val email by loginViewModel.email
     val password by loginViewModel.password
@@ -23,15 +26,16 @@ fun LoginScreen(
 
     LaunchedEffect(loginResponse) {
         if (loginResponse != null) {
-            onLoginSuccess()
+            navController.navigate(Routes.HomeScreen) {
+                popUpTo("LoginScreen") { inclusive = true }
+            }
         }
     }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(24.dp),
-        contentAlignment = Alignment.Center
+            .padding(24.dp), contentAlignment = Alignment.Center
     ) {
         Column(
             modifier = Modifier.fillMaxWidth(),
@@ -45,7 +49,7 @@ fun LoginScreen(
                 onValueChange = { loginViewModel.onEmailChange(it) },
                 label = { Text("Email or Username") },
                 singleLine = true,
-                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 modifier = Modifier.fillMaxWidth()
             )
 
@@ -54,8 +58,7 @@ fun LoginScreen(
                 onValueChange = { loginViewModel.onPasswordChange(it) },
                 label = { Text("Password") },
                 singleLine = true,
-                visualTransformation = PasswordVisualTransformation(),
-                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 modifier = Modifier.fillMaxWidth()
             )
 
