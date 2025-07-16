@@ -6,7 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.newsapplication.ui.view.LoginScreen
 import com.example.newsapplication.ui.view.home.HomePage
-import com.example.newsapplication.ui.view.productView.ProductDetailScreen
+import com.example.newsapplication.ui.view.productView.ItemDetailsScreen
 
 @Composable
 fun RouteNavigation() {
@@ -21,7 +21,7 @@ fun RouteNavigation() {
             }
             composable(Routes.ProductDetailWithArgs) {
                 backStackEntry -> val productId = backStackEntry.arguments?.getString("productId")?.toIntOrNull()
-                ProductDetailScreen(productId)
+                ItemDetailsScreen(productId)
             }
         })
 }

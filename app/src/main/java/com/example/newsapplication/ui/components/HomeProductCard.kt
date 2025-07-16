@@ -54,9 +54,13 @@ fun PostCard(productResponse: Product, navController: NavController) {
                         .aspectRatio(1f), // square box
                     contentAlignment = Alignment.Center
                 ) {
-                    AsyncImage(
-                        model = productResponse.thumbnail,
-                        contentDescription = "Product Img",
+//                    AsyncImage(
+//                        model = productResponse.thumbnail,
+//                        contentDescription = "Product Img",
+//                    )
+                    CustomImg(
+                        imgUrl = productResponse.thumbnail,
+                        height = 150.dp
                     )
                 }
                 Text(
