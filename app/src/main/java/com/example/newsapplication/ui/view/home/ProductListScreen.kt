@@ -33,18 +33,13 @@ fun ProductListScreen(viewModel: PostViewModel = viewModel(), paddingValues: Pad
     Column(
         modifier = Modifier.padding(paddingValues)
     ) {
-        HomeImage(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding( top = 2.dp)
-        )
+
 
         if (productResponse.products.isEmpty()) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(),
-                contentAlignment = Alignment.Center
+                    .padding(), contentAlignment = Alignment.Center
 
             ) {
                 CircularProgressIndicator()
@@ -54,6 +49,13 @@ fun ProductListScreen(viewModel: PostViewModel = viewModel(), paddingValues: Pad
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
+                item {
+                    HomeImage(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 2.dp)
+                    )
+                }
                 items(productResponse.products) {
                     PostCard(it)
                 }

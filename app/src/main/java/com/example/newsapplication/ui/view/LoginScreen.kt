@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.newsapplication.Routes
+import com.example.newsapplication.ui.view.home.CustomOutlinedTextField
 import com.example.newsapplication.viewModel.LoginViewModel
 
 @Composable
@@ -44,21 +45,21 @@ fun LoginScreen(
         ) {
             Text("Login", style = MaterialTheme.typography.headlineMedium)
 
-            OutlinedTextField(
+            CustomOutlinedTextField(
                 value = email,
                 onValueChange = { loginViewModel.onEmailChange(it) },
-                label = { Text("Email or Username") },
+                label = "Email or Username",
                 singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+                keyboardType = KeyboardType.Email,
                 modifier = Modifier.fillMaxWidth()
             )
 
-            OutlinedTextField(
+            CustomOutlinedTextField(
                 value = password,
                 onValueChange = { loginViewModel.onPasswordChange(it) },
-                label = { Text("Password") },
+                label = "Password",
                 singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                keyboardType = KeyboardType.Password,
                 modifier = Modifier.fillMaxWidth()
             )
 

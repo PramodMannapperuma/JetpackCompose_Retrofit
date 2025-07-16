@@ -18,11 +18,6 @@ fun RouteNavigation() {
             composable(Routes.loginScreen) {
                 LoginScreen(navController)
             }
-//            composable(Routes.productScreen) {
-//                ProductListScreen(
-//                    paddingValues = PaddingValues(8.dp)
-//                )
-//            }
             composable(Routes.HomeScreen) {
                 HomePage()
             }
