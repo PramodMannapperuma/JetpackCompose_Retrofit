@@ -73,13 +73,13 @@ fun PostCard(productResponse: Product, navController: NavController) {
                 modifier = Modifier.padding(16.dp),
             ) {
                 Text(
-                    productResponse.title,
+                    productResponse.title ?: "Some Title",
                     style = MaterialTheme.typography.bodyLarge,
                     color = Color.Black,
 //                    textAlign = TextAlign.Center
                 )
                 Text(
-                    productResponse.brand,
+                    productResponse.brand ?: "Some Brand",
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.Black
                 )
