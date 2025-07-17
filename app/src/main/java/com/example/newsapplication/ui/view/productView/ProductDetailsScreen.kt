@@ -17,7 +17,7 @@ fun ItemDetailsScreen(productId: Int?, navController: NavHostController) {
                 showCartButton = true
             )
         }) { innerPadding ->
-        ProductDetailScreen(productId, innerPadding)
+        ProductDetailScreen(navController,productId, innerPadding)
         println("product Id in productdetails : $productId")
     }
 }

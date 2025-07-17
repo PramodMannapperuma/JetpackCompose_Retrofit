@@ -26,11 +26,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.newsapplication.ui.components.CustomImg
 import com.example.newsapplication.viewModel.ProductViewModel
 
 @Composable
-fun ProductDetailScreen(
+fun ProductDetailScreen( navController: NavController,
     productId: Int?, innerPadding: PaddingValues, viewModel: ProductViewModel = viewModel()
 ) {
 
@@ -104,7 +105,8 @@ fun ProductDetailScreen(
 
         // Action Button
         Button(
-            onClick = { /* TODO: Add to cart or navigate */ },
+            onClick = { viewModel.addToCart(product)
+                      navController.navigate("cart")},
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp),
