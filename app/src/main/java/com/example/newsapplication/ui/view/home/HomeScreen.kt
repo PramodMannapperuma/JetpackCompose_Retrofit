@@ -9,7 +9,12 @@ import com.example.newsapplication.ui.components.AppBar
 fun HomePage(navController: NavHostController) {
     Scaffold(
         topBar = {
-            AppBar("Products")
+            AppBar(
+                "Products",
+                navController = navController,
+                showBackButton = false,
+                showCartButton = true
+            )
         }
     ) { innerPadding ->
         ProductListScreen(

@@ -50,6 +50,7 @@ class LoginViewModel: ViewModel() {
                 )
             } catch (e: Exception) {
                 _errorMessage.value = "Login failed hutto: ${e.message}"
+                println(e.message)
             } finally {
                 _isLoading.value= false
             }

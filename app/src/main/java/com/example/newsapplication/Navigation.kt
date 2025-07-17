@@ -21,7 +21,7 @@ fun RouteNavigation() {
             }
             composable(Routes.ProductDetailWithArgs) {
                 backStackEntry -> val productId = backStackEntry.arguments?.getString("productId")?.toIntOrNull()
-                ItemDetailsScreen(productId)
+                ItemDetailsScreen(productId, navController)
             }
         })
 }
