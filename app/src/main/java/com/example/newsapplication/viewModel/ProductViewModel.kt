@@ -8,6 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.newsapplication.data.api.RetrofitInstance
 import com.example.newsapplication.data.models.Product
 import com.example.newsapplication.data.models.ProductResponse
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 class ProductViewModel: ViewModel() {
@@ -23,6 +25,9 @@ class ProductViewModel: ViewModel() {
 
     private val _cartItems = mutableStateListOf<Product>()
     val cartItems: List<Product> get() = _cartItems
+
+    private val _uiEvent = Channel<UiEvent>()
+    val uiEvent = _uiEvent.receiveAsFlow()
 
     fun addToCart(product: Product) {
         _cartItems.add(product)

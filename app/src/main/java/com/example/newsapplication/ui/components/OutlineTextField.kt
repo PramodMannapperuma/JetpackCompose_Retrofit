@@ -13,7 +13,7 @@ fun CustomOutlinedTextField(
     onValueChange: (String) -> Unit,
     label: String,
     modifier: Modifier = Modifier,
-    keyboardType: KeyboardType = KeyboardType.Text,
+    keyboardType: KeyboardType,
     singleLine: Boolean = true,
 ) {
     OutlinedTextField(

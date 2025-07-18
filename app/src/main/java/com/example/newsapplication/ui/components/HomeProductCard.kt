@@ -19,8 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import coil.compose.AsyncImage
-import com.example.newsapplication.Routes
 import com.example.newsapplication.data.models.Product
 
 
@@ -31,7 +29,7 @@ fun PostCard(productResponse: Product, navController: NavController) {
             .fillMaxWidth()
             .clickable {
                 println("clicked id: ${productResponse.id}")
-                navController.navigate("${Routes.ProductDetailScreen}/${productResponse.id}")
+                navController.navigate("details/${productResponse.id}")
             }, colors = CardDefaults.cardColors(
             containerColor = Color.White
         )
