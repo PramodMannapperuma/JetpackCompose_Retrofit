@@ -2,11 +2,12 @@ package com.example.newsapplication.ui.view.home
 
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
+import androidx.navigation.NavController
 import com.example.newsapplication.ui.components.AppBar
 
 @Composable
-fun HomePage(navController: NavHostController) {
+fun HomePage(navController: NavController) {
+
     Scaffold(
         topBar = {
             AppBar(
@@ -15,7 +16,9 @@ fun HomePage(navController: NavHostController) {
                 showBackButton = false,
                 showCartButton = true
             )
-        }
+        },
+//        bottomBar = { BottomNavBar(navController = navController) }
+
     ) { innerPadding ->
         ProductListScreen(
             navController,

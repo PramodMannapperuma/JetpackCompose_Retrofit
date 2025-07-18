@@ -1,7 +1,6 @@
 package com.example.newsapplication
 
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -15,13 +14,28 @@ fun RouteNavigation() {
     val navController = rememberNavController()
 
     NavHost(
-        navController = navController, startDestination = Routes.loginScreen, builder = {
+        navController = navController,
+        startDestination = Routes.loginScreen,
+        builder = {
             composable(Routes.loginScreen) {
-                LoginScreen(navController)
+                LoginScreen(
+                    onLoginSuccess= {
+                        navController.navigate("main") {
+                            popUpTo("login") { inclusive = true}
+                        }
+                    }
+                )
             }
+//            composable(Routes.loginScreen) {
+//                LoginScreen(navController)
+//            }
+
             composable(Routes.HomeScreen) {
                 HomePage(navController)
             }
+//            composable(Routes.ProductDetailScreen) {
+//                ItemDetailsScreen()
+//            }
             composable(Routes.ProductDetailWithArgs) {
                 backStackEntry -> val productId = backStackEntry.arguments?.getString("productId")?.toIntOrNull()
                 ItemDetailsScreen(productId, navController)

@@ -15,9 +15,10 @@ import com.example.newsapplication.viewModel.LoginViewModel
 
 @Composable
 fun LoginScreen(
-    navController: NavController,
     loginViewModel: LoginViewModel = viewModel(),
+    onLoginSuccess: () -> Unit
 ) {
+
     val email by loginViewModel.email
     val password by loginViewModel.password
     val errorMessage by loginViewModel.errorMessage
@@ -26,9 +27,7 @@ fun LoginScreen(
 
     LaunchedEffect(loginResponse) {
         if (loginResponse != null) {
-            navController.navigate(Routes.HomeScreen) {
-                popUpTo("LoginScreen") { inclusive = true }
-            }
+           onLoginSuccess()
         }
     }
 
@@ -49,7 +48,7 @@ fun LoginScreen(
                 onValueChange = { loginViewModel.onEmailChange(it) },
                 label = "Email or Username",
                 singleLine = true,
-                keyboardType = KeyboardType.Email,
+                keyboardType = KeyboardType.Text,
                 modifier = Modifier.fillMaxWidth()
             )
 
